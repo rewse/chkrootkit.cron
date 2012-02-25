@@ -46,7 +46,7 @@ trap 'remove_message; exit 1' 1 2 3 15
 remove_message
 
 # Run chkrootkit and send an alert mail if rootkits were found out
-$BINDIR/chkrootkit.sh | grep INFECTED > $MSGFILE
+$BINDIR/chkrootkit.sh 2>&1 | grep INFECTED > $MSGFILE
 
 # Send an alert mail if there is a mail message
 if [ -s $MSGFILE ]; then
